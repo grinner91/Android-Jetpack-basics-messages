@@ -1,7 +1,6 @@
 package com.example.jetpackbasicsmessages
 
 import android.os.Bundle
-import android.os.Message
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -36,45 +35,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MessageCard(MessageData("Zaman", "This is message1"))
+
+                    Conversation(messages = getSampleMessages())
                 }
             }
         }
-    }
-}
-
-
-@Composable
-fun MessageCard(msg: MessageData) {
-    Row(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(all = 5.dp)
-    ) {
-
-        Image(
-            painter = painterResource(id = R.drawable.profile_picture1),
-            contentDescription = "Profile picture",
-            modifier = Modifier
-                .size(40.dp)
-                .clip(CircleShape)
-        )
-
-        Spacer(modifier = Modifier.width(8.dp))
-
-        Column {
-            Text(text = msg.author)
-            Spacer(modifier = Modifier.height(4.dp))
-            Text(text = msg.body)
-        }
-    }
-}
-
-@Preview
-@Composable
-fun MessageCard() {
-    JetpackBasicsMessagesTheme {
-        MessageCard(MessageData("Zaman", "This is message1"))
     }
 }
 
